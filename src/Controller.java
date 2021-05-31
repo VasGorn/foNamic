@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,18 @@ public class Controller extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String base = "/jsp/";
+		String url = base + "uploadData.jsp";
+		String action = request.getParameter("action");
+		System.out.println("ACTION: " + action);
+		if (action != null) {
+			switch (action) {
+				default:
+					break;
+			}
+		}
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
+		requestDispatcher.forward(request, response);
 	}
 
 }
