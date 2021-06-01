@@ -43,6 +43,15 @@
 			</div>
 		</div>
 	</div>
+
+	<script> 
+		const myForm = document.getElementById("myForm");
+		const csvFile = document.getElementById("csvFile");
+		const pInfo = document.getElementById("pInfo");
+		const chart = document.getElementById("chart").getContext("2d");
+		const inputStep = document.getElementById("stepTime");
+		const btnNext = document.getElementById("btnNext");
+	</script>
 	
 </body>
 </html>
