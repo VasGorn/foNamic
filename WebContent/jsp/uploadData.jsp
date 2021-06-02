@@ -62,6 +62,33 @@
 		const chart = document.getElementById("chart").getContext("2d");
 		const inputStep = document.getElementById("stepTime");
 		const btnNext = document.getElementById("btnNext");
+		
+		var mainChart = drawChart([0, 1, 2, 3], [0, 0, 0, 0]);
+
+		function drawChart(xData, yData){
+			const data = {
+				labels: xData,
+				datasets: [{
+					label: "Reference data",
+					backgroundColor: "rgb(255,99,132)",
+					borderColor: "rgb(255,99,132)",
+					data: yData,
+					pointRadius: 0,
+				}]
+			};
+			const config = {
+				type: "line",
+				data,
+				options: {}
+			};
+			var myChart = new Chart(
+				chart,
+				config
+				);
+			
+			return myChart;	
+		}
+	
 	</script>
 
 </body>
