@@ -64,6 +64,40 @@
 		const btnNext = document.getElementById("btnNext");
 		
 		var mainChart = drawChart([0, 1, 2, 3], [0, 0, 0, 0]);
+		
+		function getDataFromFile(records, stepSize, delimiter = ','){
+			const rows = records.split('\n');
+			const rowsLength = rows.length;
+			let xData = [];
+			let yData = [];
+
+			let item = 0.0;
+			let step = 0.0;
+			let row = "";
+			for(let i = 0; i < rowsLength; ++i){
+				xData.push(step);
+
+				row = rows[i].split(delimiter);
+				const firstRecord = row[0].trim();
+				if(isNaN(firstRecord) || (firstRecord === '')){
+					pInfo.innerHTML = "Error! Please, check the value at row - " + (i+1) + '.';
+					pInfo.hidden = false;
+					pInfo.style.color = "red";
+					btnNext.disabled = true;
+					
+					xData = [0, 1, 2, 3];
+					yData = [0, 0, 0, 0]
+					break;
+				}
+				item = 	parseFloat(firstRecord);
+				yData.push(item);
+
+				step = Math.round((step + stepSize)*100000) / 100000;
+			}
+			const data = [xData, yData];
+			btnNext.disabled = false;
+			return data;
+		}
 
 		function drawChart(xData, yData){
 			const data = {
