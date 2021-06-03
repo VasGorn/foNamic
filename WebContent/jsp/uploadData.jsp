@@ -122,6 +122,13 @@
 			
 			return myChart;	
 		}
+		
+		function updateChart(chart, xData, yData){
+			chart.data.labels = xData;
+			chart.data.datasets[0].data = yData;
+
+			chart.update();
+		}
 	
 	</script>
 
