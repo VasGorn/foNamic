@@ -64,6 +64,25 @@
 		const btnNext = document.getElementById("btnNext");
 		
 		var mainChart = drawChart([0, 1, 2, 3], [0, 0, 0, 0]);
+
+		myForm.addEventListener("submit", formSubmitClicked, false); 
+		
+		function formSubmitClicked(e){
+			e.preventDefault();
+			const input = csvFile.files[0];
+			const reader = new FileReader();
+			
+			const stepSize = parseFloat(inputStep.value);
+
+			reader.onload = function(event){
+				const text = event.target.result;
+				const data = getDataFromFile(text, stepSize);
+				
+				updateChart(mainChart, data[0], data[1]);
+			};
+			
+			reader.readAsText(input);
+		}
 		
 		function getDataFromFile(records, stepSize, delimiter = ','){
 			const rows = records.split('\n');
