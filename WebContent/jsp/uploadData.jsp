@@ -65,6 +65,13 @@
 		
 		var mainChart = drawChart([0, 1, 2, 3], [0, 0, 0, 0]);
 
+		csvFile.addEventListener("click", changeFileClicked, false);
+		function changeFileClicked(){
+			pInfo.hidden = true;
+			btnNext.disabled = true;
+			csvFile.value = '';
+		}
+
 		myForm.addEventListener("submit", formSubmitClicked, false); 
 		
 		function formSubmitClicked(e){
