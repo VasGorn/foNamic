@@ -72,6 +72,11 @@
 			csvFile.value = '';
 		}
 
+		btnNext.addEventListener("click", btnNextClicked, false);
+		function btnNextClicked(){
+			myForm.submit();
+		}
+
 		myForm.addEventListener("submit", formSubmitClicked, false); 
 		
 		function formSubmitClicked(e){
