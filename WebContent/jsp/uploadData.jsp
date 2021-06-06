@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<form id="myForm" action="/fonamic/" method="post"
+				<form id="myForm" action="/foNamic/" method="post"
 					enctype="multipart/form-data">
 					<fieldset>
 						<legend>Input data</legend>
