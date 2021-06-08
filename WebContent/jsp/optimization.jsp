@@ -14,6 +14,39 @@
 <title>Optimization</title>
 </head>
 <body>
-
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<form id="settingForm" action="/foNamic/" method="post">
+					<fieldset>
+						<legend>Settings of Genetic Algorithm</legend>
+						<input id="hideAction" type="hidden" name="action" value="GAsettings" /> 
+						<label class="form-lable">Select control object:</label>
+							<div style="margin: auto;" class="row">
+							<div class="col form-check">
+								<input style="margin-top: 28px;" class="form-check-input" type="radio" name="controlObject" id="fo_2" value="fo2">
+								<label class="form-check-label" for="fo_2">
+									$$\frac{K}{a_{1}s^{1+\mu}+a_{0}s^{\mu}+1}$$
+								</label>
+							</div>
+							<div class="col form-check">
+								<input style="margin-top: 28px;" class="form-check-input" type="radio" name="controlObject" id="fo_1" value="fo1">
+								<label class="form-check-label" for="fo_1">
+									$$\frac{K}{a_{1}s+a_{0}s^{\mu}+1}$$
+								</label>
+							</div>
+							<div class="col form-check">
+								<input style="margin-top: 28px;" class="form-check-input" type="radio" name="controlObject" id="fo_0" value="fo0" checked>
+								<label class="form-check-label" for="fo_0">
+									$$\frac{K}{a_{0}s^{\mu}+1}$$
+								</label>
+							</div>
+							</div>
+							
+					</fieldset>
+				</form>
+			</div>	
+		</div>
+	</div>
 </body>
 </html>
