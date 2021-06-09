@@ -78,6 +78,23 @@
 							</div>
 							</div>
 
+							<div class="row">
+							<div class="col">
+								<label for="a0Start" class="form-label">Start value of \(a_0\):</label>
+								<input type="number" name="a0Start" step="0.0001" min="0.0001" max="10000" class="form-control" id="a0Start" value="1" required>
+							</div>
+
+							<div class="col">
+								<label for="a0Final" class="form-label">Final value of \(a_0\):</label>
+								<input type="number" name="a0Final" step="0.0001" min="0.0002" max="10000" class="form-control" id="a0Final" value="5" required>
+							</div>
+							
+							<div class="col">
+								<label for="a0Step" class="form-label">Precision \(a_0\):</label>
+								<input type="number" name="a0Step" step="0.00001" min="0.0001" max="100" class="form-control" id="a0Step" value="0.001" required>
+							</div>
+							</div>
+
 
 
 							
