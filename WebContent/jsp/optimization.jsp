@@ -60,6 +60,25 @@
 								<input type="number" name="kStep" step="0.00001" min="0.0001" max="100" class="form-control" id="kStep" value="0.01" required>
 							</div>
 							</div>
+							
+							<div class="row">
+							<div class="col">
+								<label for="muStart" class="form-label">Start value of \(\mu\):</label>
+								<input type="number" name="muStart" step="0.0001" min="0.0001" max="10000" class="form-control" id="muStart" value="0.2" required>
+							</div>
+
+							<div class="col">
+								<label for="muFinal" class="form-label">Final value of \(\mu\):</label>
+								<input type="number" name="muFinal" step="0.0001" min="0.0002" max="10000" class="form-control" id="muFinal" value="0.8" required>
+							</div>
+							
+							<div class="col">
+								<label for="muStep" class="form-label">Precision \(\mu\):</label>
+								<input type="number" name="muStep" step="0.00001" min="0.0001" max="100" class="form-control" id="muStep" value="0.001" required>
+							</div>
+							</div>
+
+
 
 							
 					</fieldset>
