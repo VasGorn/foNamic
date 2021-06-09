@@ -43,6 +43,25 @@
 							</div>
 							</div>
 							
+							<label class="form-lable">Range of coefficients</label>
+							<div class="row">
+							<div class="col">
+								<label for="kStart" class="form-label">Start value of \(K\):</label>
+								<input type="number" name="kStart" step="0.0001" min="0.0001" max="10000" class="form-control" id="kStart" value="1" required>
+							</div>
+
+							<div class="col">
+								<label for="kFinal" class="form-label">Final value of \(K\):</label>
+								<input type="number" name="kFinal" step="0.0001" min="0.0002" max="10000" class="form-control" id="kFinal" value="50" required>
+							</div>
+							
+							<div class="col">
+								<label for="kStep" class="form-label">Precision \(K\):</label>
+								<input type="number" name="kStep" step="0.00001" min="0.0001" max="100" class="form-control" id="kStep" value="0.01" required>
+							</div>
+							</div>
+
+							
 					</fieldset>
 				</form>
 			</div>	
