@@ -95,6 +95,23 @@
 							</div>
 							</div>
 
+							<div class="row" id="rowExtra" hidden>
+							<div class="col">
+								<label for="a1Start" class="form-label">Start value of \(a_1\):</label>
+								<input type="number" name="a1Start" step="0.0001" min="0.0001" max="10000" class="form-control" id="a1Start" value="0.1" required>
+							</div>
+
+							<div class="col">
+								<label for="a1Final" class="form-label">Final value of \(a_1\):</label>
+								<input type="number" name="a1Final" step="0.0001" min="0.0002" max="10000" class="form-control" id="a1Final" value="2" required>
+							</div>
+							
+							<div class="col">
+								<label for="a1Step" class="form-label">Precision \(a_1\):</label>
+								<input type="number" name="a1Step" step="0.00001" min="0.0001" max="100" class="form-control" id="a1Step" value="0.001" required>
+							</div>
+							</div>
+	
 
 
 							
