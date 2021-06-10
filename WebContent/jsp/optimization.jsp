@@ -111,9 +111,22 @@
 								<input type="number" name="a1Step" step="0.00001" min="0.0001" max="100" class="form-control" id="a1Step" value="0.001" required>
 							</div>
 							</div>
-	
-
-
+							
+							<div style="margin-top: 20px;" class="row align-items-center">
+								<div class="col-auto">
+									<label for="generationSize" class="col-form-label">Generation size:</label>
+								</div>
+								<div class="col-auto">
+									<input type="number" name="generationSize" step="1" min="10" max="10000" class="form-control" id="numGeneration" value="1000" required>
+								</div>
+								<div class="col-auto">
+									<label for="numElitism" class="col-form-label">Eletism:</label>
+								</div>
+								<div class="col-auto">
+									<input type="number" name="numElitism" step="1" min="1" max="10" class="form-control" id="numGeneration" value="5" required>
+								</div>
+							</div>
+		
 							
 					</fieldset>
 				</form>
