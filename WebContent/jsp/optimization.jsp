@@ -127,6 +127,26 @@
 								</div>
 							</div>
 		
+							<div style="margin-top: 20px;" class="row align-items-center">
+								<div class="col-auto">
+									<label class="col-form-label">Selection type:</label>
+								</div>
+								<div class="form-check col-auto">
+								<div>
+									<input class="form-check-input" type="radio" name="selectionType" id="rTournament" value="tournament" checked>
+									<label for="tournament" class="form-check-label">Tournament</label>
+								</div>
+								</div>
+								<div class="form-check col-auto">
+									<input class="form-check-input" type="radio" name="selectionType" id="rRoulette" value="roulette" disabled>
+									<label for="roulette" class="form-check-label">Roulette</label>
+								</div>
+								<div class="form-check col-auto">
+									<input class="form-check-input" type="radio" name="selectionType" id="rRank" value="rank" disabled>
+									<label for="rank" class="form-check-label">Rank</label>
+								</div>
+							</div>
+
 							
 					</fieldset>
 				</form>
