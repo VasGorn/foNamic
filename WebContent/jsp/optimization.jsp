@@ -158,6 +158,15 @@
 									<a class="nav-link disabled" href="">Rank</a>
 								</li>	
 							</ul>
+							
+							<div style="margin-top: 10px;" class="row align-items-center">
+								<div class="col-auto">
+									<label for="numSizeSubgroup" class="form-label">Subgroup size:</label>
+								</div>
+								<div class="col-auto">
+									<input type="number" name="numSizeSubgroup" step="1" min="1" max="5" class="form-control" id="numSizeSubgroup" value="3" required>
+								</div>
+							</div>
 
 							
 					</fieldset>
