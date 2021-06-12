@@ -168,6 +168,18 @@
 								</div>
 							</div>
 
+							<div style="margin-top: 10px;" class="row align-items-center">
+								<div class="col-auto">
+								<label for="sliderMutation" class="form-label">Chance of Mutation, %:</label>
+								</div>
+								<div class="col-auto">
+								<input id="sliderMutation" name="chanceOfMutation" type="range" class="form-range" min="0" max="10" step="1" value="5">
+								</div>
+								<div class="col-auto">
+								<p>Value: <span id="valueMutation"></span></p>
+								</div>
+							</div>
+							
 							
 					</fieldset>
 				</form>
