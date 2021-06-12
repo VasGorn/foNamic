@@ -146,6 +146,18 @@
 									<label for="rank" class="form-check-label">Rank</label>
 								</div>
 							</div>
+							
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a class="nav-link active" >Tournament</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link disabled" href="">Roulette</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link disabled" href="">Rank</a>
+								</li>	
+							</ul>
 
 							
 					</fieldset>
