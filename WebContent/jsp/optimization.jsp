@@ -180,7 +180,8 @@
 								</div>
 							</div>
 							
-							
+							<button id="start" type="submit" class="btn btn-info">START</button>
+							<button id="stop" type="button" class="btn btn-danger">STOP</button>
 					</fieldset>
 				</form>
 			</div>	
