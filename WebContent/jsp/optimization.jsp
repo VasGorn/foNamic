@@ -190,5 +190,19 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		const hideAction = document.getElementById("hideAction");
+		const canvas = document.getElementById("chart").getContext("2d");
+		const rFO_2 = document.getElementById("fo_2");
+		const rFO_1 = document.getElementById("fo_1");
+		const rFO_0 = document.getElementById("fo_0");
+		const rowExtra = document.getElementById("rowExtra");
+		const valueMutation = document.getElementById("valueMutation");
+		const sliderMutation = document.getElementById("sliderMutation");
+		const settingForm = document.getElementById("settingForm");
+		const btnStop = document.getElementById("stop");
+
+
+	</script>
 </body>
 </html>
