@@ -185,6 +185,9 @@
 					</fieldset>
 				</form>
 			</div>	
+			<div class="col">
+				<canvas width="550" id="chart"></canvas>
+			</div>
 		</div>
 	</div>
 </body>
