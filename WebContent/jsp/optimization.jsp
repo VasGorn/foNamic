@@ -202,6 +202,31 @@
 		const settingForm = document.getElementById("settingForm");
 		const btnStop = document.getElementById("stop");
 
+		const chartGeneration = drawChart(canvas,[0,1,2,3], [0,0,0,0]);
+		
+		function drawChart(canvas, xData, yData){
+			const data = {
+				labels: xData,
+				datasets: [{
+					label: "Evolution",
+					backgroundColor: "rgb(60,179,113)",
+					borderColor: "rgb(60,179,113)",
+					data: yData,
+					pointRadius: 0,
+				}]
+			};
+			const config = {
+				type: "line",
+				data,
+				options: {}
+			};
+			var myChart = new Chart(
+				canvas,
+				config
+				);
+			
+			return myChart;	
+		}
 
 	</script>
 </body>
