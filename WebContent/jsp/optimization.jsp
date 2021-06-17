@@ -204,6 +204,25 @@
 
 		const chartGeneration = drawChart(canvas,[0,1,2,3], [0,0,0,0]);
 		
+		rFO_2.addEventListener("click", rSelectObjectClicked, false);
+		rFO_1.addEventListener("click", rSelectObjectClicked, false);
+		rFO_0.addEventListener("click", rSelectObjectClicked, false);
+
+		function rSelectObjectClicked(){
+			if(rFO_2.checked){
+				rowExtra.hidden = false;
+				return;
+			}
+			if(rFO_1.checked){
+				rowExtra.hidden = false;
+				return;
+			}
+				if(rFO_0.checked){
+				rowExtra.hidden = true;
+				return;
+			}
+		}
+		
 		function drawChart(canvas, xData, yData){
 			const data = {
 				labels: xData,
