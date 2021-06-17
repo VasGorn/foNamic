@@ -261,6 +261,10 @@
 			return myChart;	
 		}
 
+		valueMutation.innerHTML = sliderMutation.value;
+		sliderMutation.oninput = function(){
+			valueMutation.innerHTML = this.value;
+		}
 	</script>
 </body>
 </html>
