@@ -209,6 +209,7 @@
 		rFO_0.addEventListener("click", rSelectObjectClicked, false);
 
 		settingForm.addEventListener("submit", btnStartClicked, false);
+		btnStop.addEventListener("click", btnStopClicked, false);
 
 		function rSelectObjectClicked(){
 			if(rFO_2.checked){
@@ -228,6 +229,11 @@
 		function btnStartClicked(event){
 			hideAction.value = "start";
 			event.preventDefault();
+			$.post('/foNamic/', $('#settingForm').serialize());
+		}
+
+		function btnStopClicked(event){
+			hideAction.value = "stop";
 			$.post('/foNamic/', $('#settingForm').serialize());
 		}
 		
