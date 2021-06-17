@@ -208,6 +208,8 @@
 		rFO_1.addEventListener("click", rSelectObjectClicked, false);
 		rFO_0.addEventListener("click", rSelectObjectClicked, false);
 
+		settingForm.addEventListener("submit", btnStartClicked, false);
+
 		function rSelectObjectClicked(){
 			if(rFO_2.checked){
 				rowExtra.hidden = false;
@@ -221,6 +223,12 @@
 				rowExtra.hidden = true;
 				return;
 			}
+		}
+		
+		function btnStartClicked(event){
+			hideAction.value = "start";
+			event.preventDefault();
+			$.post('/foNamic/', $('#settingForm').serialize());
 		}
 		
 		function drawChart(canvas, xData, yData){
