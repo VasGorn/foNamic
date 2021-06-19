@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +17,7 @@ import javax.servlet.http.Part;
 
 import com.opencsv.CSVReader;
 
+import beans.ParamCoef;
 import beans.RefFunction;
 import utils.StrToNumber;
 
@@ -82,6 +84,39 @@ public class Controller extends HttpServlet {
 				}
 
 				break;
+			case "start":
+				String ctlrObject = request.getParameter("controlObject");
+				System.out.println(ctlrObject);
+				
+				ParamCoef[] coefParameters = new ParamCoef[4];
+
+				try {
+					ParamCoef paramK = getTransferFuncSetting(request, "k");
+					ParamCoef paramMu = getTransferFuncSetting(request, "mu");
+					ParamCoef paramA0 = getTransferFuncSetting(request, "a0");
+					ParamCoef paramA1 = getTransferFuncSetting(request, "a1");
+						
+					coefParameters[0] = paramK;
+					coefParameters[1] = paramMu;
+					coefParameters[2] = paramA0;
+					coefParameters[3] = paramA1;
+						
+					System.out.println("Array settings:" + Arrays.deepToString(coefParameters));
+
+					String sGenerationSize = request.getParameter("generationSize");
+					int generationSize = Integer.parseInt(sGenerationSize);
+						
+					String sNumElitism = request.getParameter("numElitism");
+					int numElitism = Integer.parseInt(sNumElitism);
+						
+					String sNumSizeSubgroup = request.getParameter("numSizeSubgroup");
+					int numSizeSubgroup = Integer.parseInt(sNumSizeSubgroup);
+						
+
+				}catch(Exception e){
+					System.out.println("Error in set settings: " + e.toString());
+				}
+				break;
 			default:
 				break;
 			}
@@ -89,5 +124,21 @@ public class Controller extends HttpServlet {
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
 	}
+	
+	private ParamCoef getTransferFuncSetting(HttpServletRequest request, String sValue) throws Exception {
+		ParamCoef parameter;
+		String sStartValue = request.getParameter(sValue + "Start");
+		String sFinalValue = request.getParameter(sValue + "Final");
+		String sStepValue = request.getParameter(sValue + "Step");
+		
+		double startValue = Double.parseDouble(sStartValue);
+		double finalValue = Double.parseDouble(sFinalValue);
+		double stepValue = Double.parseDouble(sStepValue);
+		
+		parameter = new ParamCoef(startValue, finalValue, stepValue);
+		
+		return parameter;
+	}
+	
 
 }
