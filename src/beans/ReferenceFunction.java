@@ -11,6 +11,10 @@ public class ReferenceFunction {
 	private double stepTimeSize;
 	
 	public ReferenceFunction(List<Double> outputValues, double inputValue, double stepTimeSize) {
+		if(stepTimeSize <= 0.0) {
+			throw new RuntimeException("The value of step time size must to be greater then ZERO");
+		}
+	
 		int size = outputValues.size();
 		this.arrayOutput = new ArrayList<Double>(size);
 		this.inputValue = inputValue;
