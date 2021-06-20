@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 import com.opencsv.CSVReader;
 
 import beans.ParamCoef;
-import beans.RefFunction;
+import beans.ReferenceFunction;
 import utils.StrToNumber;
 
 public class Controller extends HttpServlet {
@@ -71,7 +71,7 @@ public class Controller extends HttpServlet {
 						System.out.println("ITEM: " + item);
 					}
 					
-					RefFunction refFunction = new RefFunction(lyData, stepFunctionValue, stepTimeSize);
+					ReferenceFunction refFunction = new ReferenceFunction(lyData, stepFunctionValue, stepTimeSize);
 					
 					reader.close();
 					

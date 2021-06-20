@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import beans.RefFunction;
+import beans.ReferenceFunction;
 
-class RefFunctionTest {
+class ReferenceFunctionTest {
 
-	private static RefFunction refFunction;
+	private static ReferenceFunction refFunction;
 
 	@BeforeAll
 	public static void setupAll() {
@@ -27,7 +27,7 @@ class RefFunctionTest {
 		Double[] array = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0};
 		List<Double> lArray = Arrays.asList(array);
 		
-		refFunction = new RefFunction(lArray, inputStepSignal, stepTimeSize);
+		refFunction = new ReferenceFunction(lArray, inputStepSignal, stepTimeSize);
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ class RefFunctionTest {
 		List<Double> lArray = Arrays.asList(array);
 
 		Assertions.assertThrows(RuntimeException.class, () -> {
-			RefFunction newRefFunction = new RefFunction(lArray, inputStepSignal, stepTimeSize);
+			ReferenceFunction newRefFunction = new ReferenceFunction(lArray, inputStepSignal, stepTimeSize);
 		});
 	}
 
