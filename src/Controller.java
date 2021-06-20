@@ -17,7 +17,7 @@ import javax.servlet.http.Part;
 
 import com.opencsv.CSVReader;
 
-import beans.ParamCoef;
+import beans.CoefficientParameter;
 import beans.ReferenceFunction;
 import utils.StrToNumber;
 
@@ -88,13 +88,13 @@ public class Controller extends HttpServlet {
 				String ctlrObject = request.getParameter("controlObject");
 				System.out.println(ctlrObject);
 				
-				ParamCoef[] coefParameters = new ParamCoef[4];
+				CoefficientParameter[] coefParameters = new CoefficientParameter[4];
 
 				try {
-					ParamCoef paramK = getTransferFuncSetting(request, "k");
-					ParamCoef paramMu = getTransferFuncSetting(request, "mu");
-					ParamCoef paramA0 = getTransferFuncSetting(request, "a0");
-					ParamCoef paramA1 = getTransferFuncSetting(request, "a1");
+					CoefficientParameter paramK = getTransferFuncSetting(request, "k");
+					CoefficientParameter paramMu = getTransferFuncSetting(request, "mu");
+					CoefficientParameter paramA0 = getTransferFuncSetting(request, "a0");
+					CoefficientParameter paramA1 = getTransferFuncSetting(request, "a1");
 						
 					coefParameters[0] = paramK;
 					coefParameters[1] = paramMu;
@@ -125,8 +125,8 @@ public class Controller extends HttpServlet {
 		requestDispatcher.forward(request, response);
 	}
 	
-	private ParamCoef getTransferFuncSetting(HttpServletRequest request, String sValue) throws Exception {
-		ParamCoef parameter;
+	private CoefficientParameter getTransferFuncSetting(HttpServletRequest request, String sValue) throws Exception {
+		CoefficientParameter parameter;
 		String sStartValue = request.getParameter(sValue + "Start");
 		String sFinalValue = request.getParameter(sValue + "Final");
 		String sStepValue = request.getParameter(sValue + "Step");
@@ -135,7 +135,7 @@ public class Controller extends HttpServlet {
 		double finalValue = Double.parseDouble(sFinalValue);
 		double stepValue = Double.parseDouble(sStepValue);
 		
-		parameter = new ParamCoef(startValue, finalValue, stepValue);
+		parameter = new CoefficientParameter(startValue, finalValue, stepValue);
 		
 		return parameter;
 	}

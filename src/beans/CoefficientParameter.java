@@ -1,11 +1,11 @@
 package beans;
 
-public class ParamCoef {
+public class CoefficientParameter {
 	private double minValue;
 	private double maxValue;
 	private double step;
 
-	public ParamCoef(double minValue, double maxValue, double step) {
+	public CoefficientParameter(double minValue, double maxValue, double step) {
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		this.step = step;
