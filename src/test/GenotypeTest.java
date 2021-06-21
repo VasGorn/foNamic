@@ -67,15 +67,21 @@ class GenotypeTest {
 			Genotype gType = new Genotype(coefParam);
 		});
 	}
-	
+
 	@Test
 	@DisplayName("'min' must have lower value then 'max', otherwise throw runtime exception")
-	void willThrowRuntimeExceptionThenMaxLowerThenMin() {
+	void willThrowRuntimeExceptionThenMaxTheSameToMin() {
 		double stepTime = 0.01;
 		Assertions.assertThrows(RuntimeException.class, () -> {
 			CoefficientParameter coefParam = new CoefficientParameter(5.0, 5.0, stepTime);
 			Genotype gType = new Genotype(coefParam);
 		});
+	}
+
+	@Test
+	@DisplayName("'min' must have lower value then 'max' by '10*step', otherwise throw runtime exception")
+	void willThrowRuntimeExceptionThenMaxLowerThenMin() {
+		double stepTime = 0.01;
 		Assertions.assertThrows(RuntimeException.class, () -> {
 			CoefficientParameter coefParam = new CoefficientParameter(5.0 - stepTime * 10, 5.0, stepTime);
 			Genotype gType = new Genotype(coefParam);
