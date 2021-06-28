@@ -19,6 +19,7 @@ import com.opencsv.CSVReader;
 
 import beans.CoefficientParameter;
 import beans.ReferenceFunction;
+import model.math.Const;
 import utils.StrToNumber;
 
 public class Controller extends HttpServlet {
@@ -96,10 +97,10 @@ public class Controller extends HttpServlet {
 					CoefficientParameter paramA0 = getTransferFuncSetting(request, "a0");
 					CoefficientParameter paramA1 = getTransferFuncSetting(request, "a1");
 						
-					coefParameters[0] = paramK;
-					coefParameters[1] = paramMu;
-					coefParameters[2] = paramA0;
-					coefParameters[3] = paramA1;
+					coefParameters[Const.K_INDEX] = paramK;
+					coefParameters[Const.MU_INDEX] = paramMu;
+					coefParameters[Const.A0_INDEX] = paramA0;
+					coefParameters[Const.A1_INDEX] = paramA1;
 						
 					System.out.println("Array settings:" + Arrays.deepToString(coefParameters));
 
