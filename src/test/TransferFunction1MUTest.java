@@ -34,14 +34,14 @@ class TransferFunction1MUTest {
 
 	}
 	
-	@DisplayName("Check the value of fraction order aperiodic transfer function")
+	@DisplayName("Check the value of fraction order (1+mu) transfer function")
 	@ParameterizedTest
 	@CsvFileSource(resources = "/1mu_1.csv")
 	public void checkTheValueOfTransferFunction(double value, int index) {
 		assertEquals(value, outputArray1[index], DELTA);
 	}
 
-	@DisplayName("Check the value of fraction order aperiodic transfer function then parameters changed")
+	@DisplayName("Check the value of fraction order (1+mu) transfer function then parameters changed")
 	@ParameterizedTest
 	@CsvFileSource(resources = "/1mu_2.csv")
 	public void checkTheValueOfTransferFunctionThenParametersChanged(double value, int index) {
