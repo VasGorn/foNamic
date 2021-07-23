@@ -17,6 +17,7 @@ import javax.servlet.http.Part;
 
 import com.opencsv.CSVReader;
 
+import algorithm.genetic.Individual;
 import beans.CoefficientParameter;
 import beans.ReferenceFunction;
 import model.math.Const;
@@ -103,6 +104,8 @@ public class Controller extends HttpServlet {
 					coefParameters[Const.A1_INDEX] = paramA1;
 						
 					System.out.println("Array settings:" + Arrays.deepToString(coefParameters));
+
+					Individual.setGenotypes(coefParameters);
 
 					String sGenerationSize = request.getParameter("generationSize");
 					int generationSize = Integer.parseInt(sGenerationSize);
