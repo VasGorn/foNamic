@@ -17,7 +17,11 @@ import javax.servlet.http.Part;
 
 import com.opencsv.CSVReader;
 
+import algorithm.genetic.Algorithm;
+import algorithm.genetic.CrossoverUniformImp;
 import algorithm.genetic.Individual;
+import algorithm.genetic.Population;
+import algorithm.genetic.SelectionTournamentImp;
 import beans.CoefficientParameter;
 import beans.ReferenceFunction;
 import model.math.Const;
@@ -113,6 +117,12 @@ public class Controller extends HttpServlet {
 					double mutationRate = getIntFromRequest("chanceOfMutation", request) / 100.0;
 					System.out.println("mutation rate: " + mutationRate );
 						
+					CrossoverUniformImp crossover = new CrossoverUniformImp(0.5);
+					SelectionTournamentImp selection = new SelectionTournamentImp(numSizeSubgroup);
+					Population randomPopulation = new Population(generationSize, true);
+					Algorithm algorithm = new Algorithm(selection, crossover, true, mutationRate);
+						
+
 						
 
 				}catch(Exception e){
