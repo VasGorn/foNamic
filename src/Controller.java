@@ -106,15 +106,13 @@ public class Controller extends HttpServlet {
 					System.out.println("Array settings:" + Arrays.deepToString(coefParameters));
 
 					Individual.setGenotypes(coefParameters);
-
-					String sGenerationSize = request.getParameter("generationSize");
-					int generationSize = Integer.parseInt(sGenerationSize);
+					
+					int generationSize = getIntFromRequest("generationSize", request);
+					int numElitism = getIntFromRequest("numElitism", request);
+					int numSizeSubgroup = getIntFromRequest("numSizeSubgroup", request);
+					double mutationRate = getIntFromRequest("chanceOfMutation", request) / 100.0;
+					System.out.println("mutation rate: " + mutationRate );
 						
-					String sNumElitism = request.getParameter("numElitism");
-					int numElitism = Integer.parseInt(sNumElitism);
-						
-					String sNumSizeSubgroup = request.getParameter("numSizeSubgroup");
-					int numSizeSubgroup = Integer.parseInt(sNumSizeSubgroup);
 						
 
 				}catch(Exception e){
@@ -142,6 +140,13 @@ public class Controller extends HttpServlet {
 		parameter = new CoefficientParameter(startValue, finalValue, stepValue);
 		
 		return parameter;
+	}
+	
+	private int getIntFromRequest(String parameter, HttpServletRequest request) {
+		int value = 0;
+		String sValue = request.getParameter(parameter);
+		value = Integer.parseInt(sValue);
+		return value;
 	}
 	
 
