@@ -14,6 +14,10 @@ public final class Fitness {
 		data = refFunction;
 	}
 
+	public static ReferenceFunction getData() {
+		return data;
+	}
+
 	public static void setTransferFuntion(ITransferFunction transferFunction) {
 		trFunc = transferFunction;
 	}
