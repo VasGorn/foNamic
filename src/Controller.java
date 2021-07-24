@@ -19,12 +19,18 @@ import com.opencsv.CSVReader;
 
 import algorithm.genetic.Algorithm;
 import algorithm.genetic.CrossoverUniformImp;
+import algorithm.genetic.Fitness;
 import algorithm.genetic.Individual;
 import algorithm.genetic.Population;
 import algorithm.genetic.SelectionTournamentImp;
 import beans.CoefficientParameter;
 import beans.ReferenceFunction;
+import interfaces.ITransferFunction;
 import model.math.Const;
+import model.math.FOIntegral;
+import model.math.TranserFunction1MUImp;
+import model.math.TranserFunctionAperiodicImp;
+import model.math.TranserFunctionIntImp;
 import utils.StrToNumber;
 
 public class Controller extends HttpServlet {
@@ -78,7 +84,8 @@ public class Controller extends HttpServlet {
 					}
 					
 					ReferenceFunction refFunction = new ReferenceFunction(lyData, stepFunctionValue, stepTimeSize);
-					
+					Fitness.setRefFunction(refFunction);
+
 					reader.close();
 					
 				} catch (Exception e) {
@@ -122,6 +129,7 @@ public class Controller extends HttpServlet {
 					Population randomPopulation = new Population(generationSize, true);
 					Algorithm algorithm = new Algorithm(selection, crossover, true, mutationRate);
 						
+					setupFitness(ctlrObject, Fitness.getData(), coefParameters);
 
 						
 
@@ -157,6 +165,36 @@ public class Controller extends HttpServlet {
 		String sValue = request.getParameter(parameter);
 		value = Integer.parseInt(sValue);
 		return value;
+	}
+	
+	private void setupFitness(String controlObject, ReferenceFunction refFunction, CoefficientParameter[] coefParameters) {
+		double dt = refFunction.getStepTimeSize();
+		int n_max = refFunction.getArrayOutput().size();
+		double minK = coefParameters[Const.K_INDEX].getMinValue();
+		double minMu = coefParameters[Const.MU_INDEX].getMinValue();
+		double minA0 = coefParameters[Const.A0_INDEX].getMinValue();
+		double minA1 = coefParameters[Const.A1_INDEX].getMinValue();
+		
+		FOIntegral foIntegral = new FOIntegral(minMu, dt, n_max);
+		
+		ITransferFunction trFunc;
+		
+		switch(controlObject) {
+			case("fo0"):
+				trFunc = new TranserFunctionAperiodicImp(foIntegral, minA0, minK);
+				break;
+			case("fo1"):
+				trFunc = new TranserFunctionIntImp(foIntegral, minA0, minA1, minK);
+				break;
+			case("fo2"):
+				trFunc = new TranserFunction1MUImp(foIntegral, minA0, minA1, minK);
+				break;
+			default:
+				return;
+		}
+		
+		Fitness.setTransferFuntion(trFunc);
+		
 	}
 	
 
