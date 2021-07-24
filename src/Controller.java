@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.opencsv.CSVReader;
@@ -133,7 +134,11 @@ public class Controller extends HttpServlet {
 					setupFitness(ctlrObject, Fitness.getData(), coefParameters);
 
 					EvolveProcess process = new EvolveProcess(algorithm, randomPopulation);
-						
+
+					HttpSession session = request.getSession();
+					session.setAttribute("evolveProcess", process);
+
+
 
 				}catch(Exception e){
 					System.out.println("Error in set settings: " + e.toString());
