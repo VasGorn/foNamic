@@ -31,6 +31,7 @@ import model.math.FOIntegral;
 import model.math.TranserFunction1MUImp;
 import model.math.TranserFunctionAperiodicImp;
 import model.math.TranserFunctionIntImp;
+import threads.EvolveProcess;
 import utils.StrToNumber;
 
 public class Controller extends HttpServlet {
@@ -131,6 +132,7 @@ public class Controller extends HttpServlet {
 						
 					setupFitness(ctlrObject, Fitness.getData(), coefParameters);
 
+					EvolveProcess process = new EvolveProcess(algorithm, randomPopulation);
 						
 
 				}catch(Exception e){
