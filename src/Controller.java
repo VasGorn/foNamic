@@ -145,6 +145,13 @@ public class Controller extends HttpServlet {
 					System.out.println("Error in set settings: " + e.toString());
 				}
 				break;
+			case "stop":
+				HttpSession session = request.getSession();
+				EvolveProcess process = (EvolveProcess) session.getAttribute("evolveProcess");
+				if(process != null) {
+					process.stop();
+				}
+				break;
 			default:
 				break;
 			}
