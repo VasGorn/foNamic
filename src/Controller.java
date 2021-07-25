@@ -138,6 +138,7 @@ public class Controller extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("evolveProcess", process);
 
+					process.start();
 
 
 				}catch(Exception e){
