@@ -202,7 +202,7 @@
 		const settingForm = document.getElementById("settingForm");
 		const btnStop = document.getElementById("stop");
 
-		const chartGeneration = drawChart(canvas,[0,1,2,3], [0,0,0,0]);
+		const evolveChart = drawChart(canvas,[], []);
 		
 		rFO_2.addEventListener("click", rSelectObjectClicked, false);
 		rFO_1.addEventListener("click", rSelectObjectClicked, false);
