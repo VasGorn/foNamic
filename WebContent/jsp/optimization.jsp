@@ -237,8 +237,8 @@
 			$.post('/foNamic/', $('#settingForm').serialize());
 		}
 		
-		function drawChart(canvas, xData, yData){
-			const data = {
+		function drawChart(area, xData, yData){
+			let data = {
 				labels: xData,
 				datasets: [{
 					label: "Evolution",
@@ -250,14 +250,35 @@
 			};
 			const config = {
 				type: "line",
+				
+				options: {
+					plugins:{
+						title:{
+							display:true,
+							text: "Evolution process"
+						},
+						legend: {
+				                display: false,
+				        }
+					},
+				 	scales: {
+						y: {
+						    title: {
+					        display: true,
+					        text: 'Best fitness value of population'
+				    		}
+					 	},
+					 	x: {
+					    	title: {
+					        display: true,
+					        text: 'Number of generation'
+					    	}
+					 	}
+		        	},
+				},
 				data,
-				options: {}
 			};
-			var myChart = new Chart(
-				canvas,
-				config
-				);
-			
+			let myChart = new Chart(area, config);
 			return myChart;	
 		}
 
