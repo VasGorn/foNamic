@@ -204,6 +204,8 @@
 
 		const evolveChart = drawChart(canvas,[], []);
 		
+		let timer;
+		
 		rFO_2.addEventListener("click", rSelectObjectClicked, false);
 		rFO_1.addEventListener("click", rSelectObjectClicked, false);
 		rFO_0.addEventListener("click", rSelectObjectClicked, false);
@@ -230,6 +232,7 @@
 			hideAction.value = "start";
 			event.preventDefault();
 			$.post('/foNamic/', $('#settingForm').serialize());
+			timer = setInterval(updateEvolutionChart, 1000);
 		}
 
 		function btnStopClicked(event){
