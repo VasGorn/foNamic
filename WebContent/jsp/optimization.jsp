@@ -238,6 +238,7 @@
 		function btnStopClicked(event){
 			hideAction.value = "stop";
 			$.post('/foNamic/', $('#settingForm').serialize());
+			clearInterval(timer);
 		}
 		
 		function drawChart(area, xData, yData){
