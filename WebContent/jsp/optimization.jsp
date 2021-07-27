@@ -284,6 +284,23 @@
 			let myChart = new Chart(area, config);
 			return myChart;	
 		}
+		
+		function updateEvolutionChart(){
+			$.ajax({
+			    type: "GET",
+			    url: "/fonamic/",
+			    data: "action=getChampion",
+			    success: function(resp) {
+			    	console.log(resp);
+			    	let x = resp["numberOfGeneration"];
+			    	if(x < 0.0){
+			    		return;
+			    	}
+			    	let y = resp["fitness"];
+			    	addDataToChart(evolveChart, x, y);
+			    }
+			});
+		}
 
 		function addDataToChart(chart, label, data) {
 		    chart.data.labels.push(label);
