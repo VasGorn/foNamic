@@ -59,8 +59,7 @@ public class Individual {
 	
 	public double getFitness() {
 		if(this.fitness < 0.0) {
-			// TODO: implement "Fitness" class
-			//this.fitness = Fitness.getValue(this);
+			this.fitness = Fitness.getValue(this);
 		}
 		return fitness;
 	}
