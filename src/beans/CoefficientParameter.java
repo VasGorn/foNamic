@@ -22,4 +22,10 @@ public class CoefficientParameter {
 	public double getStep() {
 		return step;
 	}
+
+	@Override
+	public String toString() {
+		return "CoefficientParameter [minValue=" + minValue + ", maxValue=" + maxValue + ", step=" + step + "]";
+	}
+
 }
