@@ -24,6 +24,7 @@ public final class Fitness {
 	
 	public static double getValue(Individual individual) {
 		double fitness = 0.0;
+		trFunc.setParameters(individual.getDecodeArray());
 		
 		double sumError = 0.0;
 		double squareError = 0.0;
