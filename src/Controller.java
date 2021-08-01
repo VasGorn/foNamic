@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 
 import algorithm.genetic.Algorithm;
@@ -24,6 +26,7 @@ import algorithm.genetic.Fitness;
 import algorithm.genetic.Individual;
 import algorithm.genetic.Population;
 import algorithm.genetic.SelectionTournamentImp;
+import beans.ChampionRecord;
 import beans.CoefficientParameter;
 import beans.ReferenceFunction;
 import interfaces.ITransferFunction;
@@ -152,6 +155,26 @@ public class Controller extends HttpServlet {
 					process.stop();
 				}
 				break;
+
+			case "getChampion":
+				ChampionRecord record;
+				Queue<ChampionRecord> qRecord = ((EvolveProcess) request.getSession()
+						.getAttribute("evolveProcess")).getqSendToClient();
+				if(qRecord.size() >= 1) {
+					record = qRecord.poll();
+				}else {
+					record = new ChampionRecord(-1, -1.0, new double[]{0, 0, 0, 0}) ;
+				}
+				ObjectMapper objMapper = new ObjectMapper();
+				String json;
+				json = objMapper.writeValueAsString(record);
+				
+				response.setContentType("application/json");
+			    response.setCharacterEncoding("UTF-8");
+			    response.getWriter().write(json);
+			    
+				System.out.println("JSON is: " + json);
+				return;
 			default:
 				break;
 			}
