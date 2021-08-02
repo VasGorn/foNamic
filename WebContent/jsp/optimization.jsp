@@ -289,7 +289,7 @@
 		function updateEvolutionChart(){
 			$.ajax({
 			    type: "GET",
-			    url: "/fonamic/",
+			    url: "/foNamic/",
 			    data: "action=getChampion",
 			    success: function(resp) {
 			    	console.log(resp);
