@@ -8,7 +8,7 @@ Next, the [genetic algorithm][genetic-algorithm] is configured: the population s
 When all settings are specified, user can start the process of optimizing the transfer function parameters using a genetic algorithm. The figure will show the process of evolution of the fittest individual. At the output, we get the parameters with the best approximation index.  
 
 The project itself is built without frameworks - the controller function is performed by **Servlet** that runs in the **Tomcat** servlet container.  
-Web pages are created using **JSP** (JavaServer Pages). Some basic logic on the pages is done by **JavaScript**. **Boostrap CSS** is used for global style. Cdisplaying graphs is done through the library **Chart.js**.  
+Web pages are created using **JSP** (JavaServer Pages). Some basic logic on the pages is done by **JavaScript**. **Boostrap CSS** is used for global style. Displaying graphs is done through the library **Chart.js**. 
 
 ![Input data](images/input_data.png)
 ![Genetic algorithm](images/ga.png)
